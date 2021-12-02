@@ -31,7 +31,7 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
-   @Transactional
+   @Transactional(readOnly = true)
    @Override
    @SuppressWarnings("unchecked")
    public User getUser(String model, int series) {
