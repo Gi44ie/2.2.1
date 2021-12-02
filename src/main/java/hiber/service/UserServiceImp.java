@@ -35,11 +35,7 @@ public class UserServiceImp implements UserService {
    @Override
    @SuppressWarnings("unchecked")
    public User getUser(String model, int series) {
-      TypedQuery<User> query = sessionFactory.getCurrentSession()
-              .createQuery("select u from User u join u.car c " +
-                      "where c.model= :m and c.series= :s")
-              .setParameter("m", model).setParameter("s", series);
-      return query.getSingleResult();
+      return userDao.getUser(model, series);
    }
 
 }
