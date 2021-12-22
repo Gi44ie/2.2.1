@@ -12,12 +12,12 @@ import java.util.List;
 
 public class MainApp {
    public static void main(String[] args) throws SQLException {
-      User user1 = new User("Richard", "Batyrov", "rich@gmail.com");
-      user1.setCar(new Car("KAMAZ", 2115));
-      User user2 = new User("Oleg", "Kirsanov", "oleg@gmail.com");
-      user2.setCar(new Car("UAZ", 123123));
-      User user3 = new User("Iosif", "Antonov", "iosif@gmail.com");
-      user3.setCar(new Car("Chevrolet", 546));
+      User user1 = new User("Rich", "Batyrov", "email");
+      user1.setCar(new Car("Car", 123));
+      User user2 = new User("tnehusn", "hathuntaehu", "aeuhnoet");
+      user2.setCar(new Car("aoeu", 213));
+      User user3 = new User("untsoehu", "oeuh", "atneohun");
+      user3.setCar(new Car("oteue", 1564));
 
       AnnotationConfigApplicationContext context = 
             new AnnotationConfigApplicationContext(AppConfig.class);
@@ -26,8 +26,6 @@ public class MainApp {
 
 
       userService.add(user1);
-      userService.add(user2);
-      userService.add(user3);
 
       List<User> users = userService.listUsers();
       for (User user : users) {
@@ -37,8 +35,8 @@ public class MainApp {
          System.out.println("Email = "+user.getEmail());
          System.out.println();
       }
-      User lastTest = userService.getUser("KAMAZ", 2115);
-      System.out.println(lastTest.getFirstName() + " has a " + lastTest.getCar().getModel());
+      User lastTest = userService.getUser("Car", 123);
+      System.out.println(lastTest.getFirstName() + " " + lastTest.getLastName());
 
       context.close();
    }
